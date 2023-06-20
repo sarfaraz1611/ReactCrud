@@ -24,7 +24,10 @@ function Adduser() {
       console.log("edit");
       try {
         await axios
-          .put(`http://localhost:3100/post/${user.state.userid}`, formData)
+          .put(
+            `https://merncrudbackend-9mqg.onrender.com/post/${user.state.userid}`,
+            formData
+          )
           .then(console.log("Form data submitted successfully"));
 
         // Handle the success response
@@ -36,7 +39,7 @@ function Adduser() {
     } else {
       try {
         await axios
-          .post("http://localhost:3100/post", formData)
+          .post("https://merncrudbackend-9mqg.onrender.com/post", formData)
           .then(console.log("Form data submitted successfully"));
 
         // Handle the success response

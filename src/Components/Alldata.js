@@ -12,7 +12,9 @@ function Alldata(props) {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:3100/alluser");
+      const response = await axios.get(
+        "https://merncrudbackend-9mqg.onrender.com/alluser"
+      );
       setUsers(response.data);
       console.log(response.data);
     } catch (error) {
@@ -22,7 +24,9 @@ function Alldata(props) {
 
   const handleDelete = async (userId) => {
     try {
-      await axios.delete(`http://localhost:3100/user/${userId}`);
+      await axios.delete(
+        `https://merncrudbackend-9mqg.onrender.com/user/${userId}`
+      );
       fetchUsers();
       console.log("User deleted successfully");
     } catch (error) {

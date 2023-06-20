@@ -7,7 +7,7 @@ function Header() {
   const dlt = async () => {
     try {
       const response = await axios.delete(
-        "http://localhost:3100/deleteallusers"
+        "https://merncrudbackend-9mqg.onrender.com/deleteallusers"
       );
     } catch (error) {
       console.log(error);
