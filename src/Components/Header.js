@@ -17,7 +17,7 @@ function Header() {
   const navigate = useNavigate();
   return (
     <div className="mainHeader">
-      <NavLink to="/all" className="NavLink">
+      <NavLink to="/" className="NavLink">
         <h1 className="NavLink">Manage Employee</h1>
       </NavLink>
       <div className="hello">

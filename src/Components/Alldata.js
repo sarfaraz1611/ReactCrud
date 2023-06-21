@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
 import { NavLink, useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 function Alldata(props) {
   const [users, setUsers] = useState([]);
@@ -50,6 +51,7 @@ function Alldata(props) {
 
   return (
     <div>
+      <Header />
       <table className="Table tabelcheclk">
         <thead>
           <tr>
