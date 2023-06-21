@@ -1,31 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [Email, setEmail] = useState("");
   const [Password, setPasword] = useState("");
+  const [status, setstatus] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
     try {
-      const checks = await axios.post("http://localhost:3100/log", {
-        Email,
-        Password,
-      });
+      const checks = await axios.post(
+        "https://merncrudbackend-9mqg.onrender.com/log",
+        {
+          Email,
+          Password,
+        }
+      );
       console.log(" check is:", checks);
-
-      if (Email == checks.data.email) {
-        console.log("sadajdb");
+      console.log(checks.data);
+      if (checks.data) {
         navigate("/all");
+      } else {
+        setstatus("invalid creditials");
       }
     } catch (e) {
       console.log(e);
     }
   };
+  // useEffect(() => {
+  //   setstatus(status);
+  // }, [status]);
 
   return (
-    <section className="vh-100 mt-5">
+    <section className="vh-100 mt-5 d-flex justify-content-center">
       <div className="container-fluid h-custom">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-md-9 col-lg-6 col-xl-5">
@@ -82,6 +90,13 @@ function Login() {
                   onChange={(e) => setPasword(e.target.value)}
                 />
                 <label className="form-label">Password</label>
+              </div>
+              <div
+                className="text-center text-lg-start mt-4 p-2"
+                style={{ Color: "white" }}>
+                <label className="form-label c-primary bg-danger px-3">
+                  {status}
+                </label>
               </div>
 
               <div className="d-flex justify-content-between align-items-center">
