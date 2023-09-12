@@ -14,7 +14,10 @@ function Alldata(props) {
   const fetchUsers = async () => {
     try {
       const response = await axios.get(
-       `${process.env.REACT_APP_backend}/alluser`
+       `${process.env.REACT_APP_backend}/alluser`,{
+          withCredentials: true,
+          
+       }
       );
       setUsers(response.data);
       console.log(response.data);
