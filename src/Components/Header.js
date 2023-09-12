@@ -7,7 +7,7 @@ function Header() {
   const dlt = async () => {
     try {
       const response = await axios.delete(
-        "https://merncrudbackend-9mqg.onrender.com/deleteallusers"
+        `${process.env.REACT_APP_backend}/deleteallusers`
       );
     } catch (error) {
       console.log(error);
@@ -17,7 +17,7 @@ function Header() {
   const navigate = useNavigate();
   return (
     <div className="mainHeader">
-      <NavLink to="/ReactCrud" className="NavLink">
+      <NavLink to="/" className="NavLink">
         <h1 className="NavLink">Manage Employee</h1>
       </NavLink>
       <div className="hello">

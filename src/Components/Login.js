@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+ 
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -11,11 +12,14 @@ function Login() {
   const handleSubmit = async () => {
     try {
       const checks = await axios.post(
-        "https://merncrudbackend-9mqg.onrender.com/log",
+        `${process.env.REACT_APP_backend}/log`,
         {
           Email,
           Password,
-        }
+        },{withCredentials:true,}
+
+          // headers: {        'Access-Control-Allow-Origin': '*',         'Content-Type': 'application/json'    }}
+        
       );
       console.log(" check is:", checks);
       console.log(checks.data);

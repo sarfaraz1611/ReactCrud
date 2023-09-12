@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/ReactCrud" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/all" element={<Alldata />} />
 

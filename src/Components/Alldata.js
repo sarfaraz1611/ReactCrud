@@ -14,7 +14,7 @@ function Alldata(props) {
   const fetchUsers = async () => {
     try {
       const response = await axios.get(
-        "https://merncrudbackend-9mqg.onrender.com/alluser"
+       `${process.env.REACT_APP_backend}/alluser`
       );
       setUsers(response.data);
       console.log(response.data);
@@ -26,7 +26,7 @@ function Alldata(props) {
   const handleDelete = async (userId) => {
     try {
       await axios.delete(
-        `https://merncrudbackend-9mqg.onrender.com/user/${userId}`
+        `${process.env.REACT_APP_backend}/user/${userId}`
       );
       fetchUsers();
       console.log("User deleted successfully");
@@ -81,7 +81,7 @@ function Alldata(props) {
 
                 <button
                   type="button"
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   onClick={() => {
                     data(user);
                   }}>

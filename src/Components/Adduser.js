@@ -25,7 +25,7 @@ function Adduser() {
       try {
         await axios
           .put(
-            `https://merncrudbackend-9mqg.onrender.com/post/${user.state.userid}`,
+            `${process.env.REACT_APP_backend}post/${user.state.userid}`,
             formData
           )
           .then(console.log("Form data submitted successfully"));
@@ -39,7 +39,7 @@ function Adduser() {
     } else {
       try {
         await axios
-          .post("https://merncrudbackend-9mqg.onrender.com/post", formData)
+          .post(`${process.env.REACT_APP_backend}/post`, formData)
           .then(console.log("Form data submitted successfully"));
 
         // Handle the success response

@@ -18,14 +18,14 @@ function Register() {
       };
       try {
         const response = await axios.post(
-          "https://merncrudbackend-9mqg.onrender.com/adduser",
+          `${process.env.REACT_APP_backend}/adduser`,
           user
         );
         console.log(response, "is responce");
         if (response.status === 200) {
           console.log("Form data submitted successfully");
           // setstatus("succsess");
-          navigate("/ReactCrud");
+          navigate("/");
         } else {
           console.log("Failed to submit form data");
           setstatus("failed");
