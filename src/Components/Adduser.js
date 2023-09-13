@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import { addUser } from "../service/api";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 
 function Adduser() {
   const [name, setName] = useState("");
@@ -9,7 +9,7 @@ function Adduser() {
   const [Address, setAddress] = useState("");
   const [Phone, setphone] = useState("");
   const [edit, setedit] = useState(false);
-  // const location = useLocation();/
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +19,7 @@ function Adduser() {
       Address,
       Phone,
     };
-    console.log("formdata", formData);
+    // console.log("formdata", formData);
     if (user.state.edit == "edit") {
       console.log("edit");
       try {
@@ -29,9 +29,9 @@ function Adduser() {
             formData
           )
           .then(console.log("Form data submitted successfully"));
-
+          navigate("/all");
         // Handle the success response
-        console.log("Form data submitted successfully");
+        // console.log("Form data submitted successfully");
       } catch (error) {
         // Handle any errors that occur during the process
         console.error("Error submitting form data:", error);
@@ -44,6 +44,7 @@ function Adduser() {
 
         // Handle the success response
         console.log("Form data submitted successfully");
+        navigate("/all");
       } catch (error) {
         // Handle any errors that occur during the process
         console.error("Error submitting form data:", error);

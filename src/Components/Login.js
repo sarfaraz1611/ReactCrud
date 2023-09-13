@@ -12,7 +12,7 @@ function Login() {
   const handleSubmit = async () => {
     try {
       const checks = await axios.post(
-        `${process.env.REACT_APP_backend}/log`,
+        `${process.env.REACT_APP_backend}/login`,
         {
           Email,
           Password,
